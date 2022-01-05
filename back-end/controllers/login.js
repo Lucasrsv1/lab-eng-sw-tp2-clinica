@@ -44,6 +44,10 @@ async function login (req, res) {
 				attributes: ["codigo", "nome", "email"],
 				required: true,
 				where: { email: req.body.email }
+			}, {
+				association: "medico",
+				attributes: ["especialidade", "crm"],
+				required: false
 			}],
 			where: { senhaHash: password }
 		});

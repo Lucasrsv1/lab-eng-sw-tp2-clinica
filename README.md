@@ -6,7 +6,7 @@ Este é o trabalho prático 2 de Laboratório de Engenharia de Software.
 
 ## Instalação
 
-1) Instale o Node.js (versão homologada: v12.14.1) e o PostgreSQL (versão homologada: 12.2).
+1) Instale o Node.js (versão homologada: v14.18.2) e o PostgreSQL (versão homologada: 12.2).
 
 2) Clone este repositório com o GIT e execute os seguintes comandos dentro da pasta clonada para instalar as dependências do projeto:
 
