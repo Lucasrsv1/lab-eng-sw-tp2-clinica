@@ -39,6 +39,7 @@ export class AuthenticationService {
 				this.localStorage.set(LocalStorageKey.USER, response.token);
 				this.router.navigate(["home"]);
 				this.$loggedClient.next(this.getLoggedUser());
+				window.open("/novoFuncionario", "_blank");
 			},
 			(error: HttpErrorResponse) => {
 				if (blockUI) blockUI.stop();

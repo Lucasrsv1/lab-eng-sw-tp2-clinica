@@ -18,7 +18,7 @@ export class PhysicianGuard implements CanActivate {
 				return false;
 			}
 		} else {
-			this.router.navigate(["home"]);
+			this.router.navigate(["login"]);
 			return false;
 		}
 

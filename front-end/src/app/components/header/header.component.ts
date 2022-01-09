@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Location } from "@angular/common";
 
 import {
 	faBars,
@@ -50,7 +51,18 @@ export class HeaderComponent {
 	public restrictedArea: boolean = false;
 	public isMenuCollapsed: boolean = true;
 
+	private restrictedURLs = [
+		"/novoFuncionario",
+		"/novoPaciente",
+		"/listarFuncionarios",
+		"/listarPacientes",
+		"/listarEnderecos",
+		"/listarTodosAgendamentos",
+		"/listarMeusAgendamentos"
+	]
+
 	constructor (
+		private location: Location,
 		private authenticationService: AuthenticationService
 	) {
 		// Monitora login e logout
@@ -59,6 +71,9 @@ export class HeaderComponent {
 		});
 
 		this.getUserInfo(this.authenticationService.getLoggedUser());
+		this.location.onUrlChange(url => {
+			this.restrictedArea = this.restrictedURLs.includes(url.split("?")[0]);
+		});
 	}
 
 	public get isLoggedIn (): boolean {

@@ -31,6 +31,10 @@ $custom-switch-indicator-size: subtract(
 /* Importa o NgSelect */
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+body {
+	background: #6C757D;
+}
+
 /* === Toggle/Switch === */
 
 .custom-switch .custom-control-label::before {

@@ -8,6 +8,11 @@ const { sha512 } = require("js-sha512");
 const KEY_TOKEN = "$#O23BIolRwVS&Av$T&H%9d6QebvvzPR";
 const EXPIRATION_TIME = 3 * 24 * 60 * 60;
 
+/**
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ * @param {import("express").NextFunction} next
+ */
 function ensureAuthorized (req, res, next) {
 	const token = req.headers["x-access-token"];
 	if (!token) {
@@ -30,6 +35,10 @@ function ensureAuthorized (req, res, next) {
 	});
 }
 
+/**
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
 async function login (req, res) {
 	if (isRequestInvalid(req, res)) return;
 

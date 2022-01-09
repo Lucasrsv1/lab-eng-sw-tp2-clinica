@@ -3,7 +3,7 @@
 }
 
 .navbar-nav .nav-link:not(.active) {
-	color: whitesmoke;
+	color: lighten(#75AF96, 25%);
 }
 
 .navbar-nav .nav-link:not(.active):hover,
