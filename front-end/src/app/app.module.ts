@@ -1,13 +1,19 @@
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import localePt from "@angular/common/locales/pt";
+import { registerLocaleData } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { LOCALE_ID, NgModule } from "@angular/core";
 
 import { BlockUIModule } from "ng-block-ui";
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { CarouselModule } from "ngx-bootstrap/carousel";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NgSelectModule } from "@ng-select/ng-select";
+import { NgxCurrencyModule } from "ngx-currency";
 import { TextMaskModule } from "angular2-text-mask";
+import { defineLocale, ptBrLocale } from "ngx-bootstrap/chronos";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -27,6 +33,9 @@ import { NovoAgendamentoComponent } from "./pages/novo-agendamento/novo-agendame
 import { NovoEnderecoComponent } from "./pages/novo-endereco/novo-endereco.component";
 import { NovoFuncionarioComponent } from "./pages/novo-funcionario/novo-funcionario.component";
 import { NovoPacienteComponent } from "./pages/novo-paciente/novo-paciente.component";
+
+defineLocale("pt-br", ptBrLocale);
+registerLocaleData(localePt);
 
 @NgModule({
 	declarations: [
@@ -55,10 +64,14 @@ import { NovoPacienteComponent } from "./pages/novo-paciente/novo-paciente.compo
 		NgSelectModule,
 		TextMaskModule,
 		ComponentsModule,
-		CarouselModule.forRoot()
+		CarouselModule.forRoot(),
+		NgxCurrencyModule,
+		BsDatepickerModule.forRoot(),
+		BrowserAnimationsModule
 	],
 	providers: [
-		{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }
+		{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+		{ provide: LOCALE_ID, useValue: "pt-BR" }
 	],
 	bootstrap: [AppComponent]
 })

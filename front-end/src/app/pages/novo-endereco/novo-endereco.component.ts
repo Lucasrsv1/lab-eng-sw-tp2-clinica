@@ -43,12 +43,11 @@ export class NovoEnderecoComponent {
 		this.validations = {
 			form: this.form,
 			fields: {
-				logradouro: [{ key: "required" }],
-				numero: [{ key: "required" }],
 				cep: [
 					{ key: "required" },
 					{ key: "failedCEP" }
 				],
+				logradouro: [{ key: "required" }],
 				bairro: [{ key: "required" }],
 				cidade: [{ key: "required" }],
 				estado: [{ key: "required" }]

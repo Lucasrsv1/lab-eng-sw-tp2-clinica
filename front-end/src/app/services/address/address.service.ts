@@ -14,6 +14,10 @@ export class AddressService {
 		return this.http.get<IEndereco[]>(`${environment.API_URL}/v1/enderecos`);
 	}
 
+	public getAddress (cep: string): Observable<IEndereco | null> {
+		return this.http.get<IEndereco | null>(`${environment.API_URL}/v1/enderecos/${cep}`);
+	}
+
 	public saveAddress (address: IEndereco): Observable<IEndereco> {
 		return this.http.post<IEndereco>(`${environment.API_URL}/v1/enderecos`, address);
 	}

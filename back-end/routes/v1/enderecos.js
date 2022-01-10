@@ -1,11 +1,13 @@
 const { Router } = require("express");
 
-const EnderecoController = require("../../controllers/enderecos");
+const EnderecosController = require("../../controllers/enderecos");
 
 const router = Router();
 
-router.get("/", EnderecoController.getAll);
+router.get("/", EnderecosController.getAll);
 
-router.post("/", EnderecoController.insert.validations, EnderecoController.insert);
+router.get("/:cep", EnderecosController.getByCEP);
+
+router.post("/", EnderecosController.insert.validations, EnderecosController.insert);
 
 module.exports = router;

@@ -11,7 +11,21 @@ const { isRequestInvalid } = require("../utils/http-validation");
 async function getAll (req, res) {
 	try {
 		const addresses = await db.Endereco.findAll();
-		res.status(201).json(addresses);
+		res.status(200).json(addresses);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ message: error.message, error });
+	}
+}
+
+/**
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
+async function getByCEP (req, res) {
+	try {
+		const address = await db.Endereco.findByPk(req.params.cep);
+		res.status(200).json(address);
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ message: error.message, error });
@@ -45,4 +59,4 @@ insert.validations = [
 	body("estado").isString().isLength({ min: 2, max: 2 }).withMessage("Estado inválido.")
 ];
 
-module.exports = { getAll, insert };
+module.exports = { getAll, getByCEP, insert };

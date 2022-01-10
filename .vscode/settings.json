@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
+        "chronos",
         "codigo",
         "DATEONLY",
         "datepicker",
+        "Daterangepicker",
         "endereco",
         "Endereco",
         "enderecos",
@@ -13,6 +15,7 @@
         "funcionarios",
         "Funcionarios",
         "Klimed",
+        "maxlength",
         "obtem",
         "Usuario"
     ]
