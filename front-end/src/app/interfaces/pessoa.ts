@@ -1,4 +1,5 @@
 import { IFuncionario } from "./funcionario";
+import { IPaciente } from "./paciente";
 
 export interface IPessoa {
 	codigo?: number;
@@ -12,4 +13,5 @@ export interface IPessoa {
 	estado: string;
 
 	funcionario?: IFuncionario;
+	paciente?: IPaciente;
 }
