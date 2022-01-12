@@ -66,6 +66,7 @@ export class ListarFuncionariosComponent implements OnInit, AfterViewInit, OnDes
 				this.rerenderDatatables();
 			},
 			(error: HttpErrorResponse) => {
+				this.blockUI?.stop();
 				this.alertsService.httpErrorAlert(
 					"Erro ao Obter Funcionários",
 					"Não foi possível realizar a consulta, tente novamente.",

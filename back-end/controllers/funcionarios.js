@@ -4,6 +4,7 @@ const { sha512 } = require("js-sha512");
 
 const db = require("../database/models");
 const { isRequestInvalid } = require("../utils/http-validation");
+const { ensureAuthorized } = require("./login");
 
 /**
  * @param {import("express").Request} req
@@ -106,6 +107,8 @@ async function insert (req, res) {
 }
 
 insert.validations = [
+	ensureAuthorized,
+
 	// Pessoa
 	body("nome").isString().withMessage("Nome inválido."),
 	body("email").isEmail().withMessage("E-mail inválido."),

@@ -48,7 +48,7 @@ async function getByUser (req, res) {
 				}]
 			}],
 			where: {
-				codigoMedico: res.locals.user.codigo
+				codigoMedico: res.locals.user.pessoa.codigo
 			}
 		});
 		res.status(200).json(appointments);
@@ -57,8 +57,6 @@ async function getByUser (req, res) {
 		res.status(500).json({ message: error.message, error });
 	}
 }
-
-getByUser.validations = [ensureAuthorized];
 
 /**
  * @param {import("express").Request} req

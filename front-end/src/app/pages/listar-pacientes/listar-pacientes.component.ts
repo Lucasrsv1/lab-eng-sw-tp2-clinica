@@ -63,6 +63,7 @@ export class ListarPacientesComponent implements OnInit, AfterViewInit, OnDestro
 				this.rerenderDatatables();
 			},
 			(error: HttpErrorResponse) => {
+				this.blockUI?.stop();
 				this.alertsService.httpErrorAlert(
 					"Erro ao Obter Pacientes",
 					"Não foi possível realizar a consulta, tente novamente.",

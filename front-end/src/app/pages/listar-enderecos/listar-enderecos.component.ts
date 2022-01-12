@@ -62,6 +62,7 @@ export class ListarEnderecosComponent implements OnInit, AfterViewInit, OnDestro
 				this.rerenderDatatables();
 			},
 			(error: HttpErrorResponse) => {
+				this.blockUI?.stop();
 				this.alertsService.httpErrorAlert(
 					"Erro ao Obter Endereços",
 					"Não foi possível realizar a consulta, tente novamente.",
