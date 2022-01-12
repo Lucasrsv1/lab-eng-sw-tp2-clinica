@@ -75,7 +75,6 @@ async function insert (req, res) {
 }
 
 insert.validations = [
-	ensureAuthorized,
 	body("data").isDate({ format: "YYYY-MM-DD" }).withMessage("Data de consulta inválida."),
 	body("horario").isNumeric().withMessage("Horário inválido."),
 	body("nome").isString().withMessage("Nome inválido."),

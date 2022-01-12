@@ -1,6 +1,6 @@
 {
 	"name": "lab-eng-sw-tp2-clinica-front-end",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "Aplicação de uma clínica médica.",
 	"scripts": {
 		"ng": "ng",
