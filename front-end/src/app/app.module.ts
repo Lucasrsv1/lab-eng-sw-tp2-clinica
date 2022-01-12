@@ -9,6 +9,7 @@ import { LOCALE_ID, NgModule } from "@angular/core";
 import { BlockUIModule } from "ng-block-ui";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { CarouselModule } from "ngx-bootstrap/carousel";
+import { DataTablesModule } from "angular-datatables";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxCurrencyModule } from "ngx-currency";
@@ -60,6 +61,7 @@ registerLocaleData(localePt);
 		HttpClientModule,
 		FormsModule,
 		ReactiveFormsModule,
+		DataTablesModule,
 		BlockUIModule,
 		NgSelectModule,
 		TextMaskModule,

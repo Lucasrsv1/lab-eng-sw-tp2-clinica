@@ -31,6 +31,9 @@ $custom-switch-indicator-size: subtract(
 /* Importa o NgSelect */
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+/* Importa o DataTables */
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
+
 body {
 	background: #6C757D;
 }
@@ -96,4 +99,36 @@ div.block-ui-spinner .message {
 .form-field.is-valid .ng-select-container:focus, .form-field.is-valid.ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container, .form-field.is-valid>span>input:focus {
 	border-color: #28a745;
 	box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, .25) !important;
+}
+
+/* === DataTables === */
+
+table.dataTable.table-bordered thead th, table.dataTable.table-bordered thead td, table.dataTable.table-bordered.no-footer {
+	border-bottom: 1px solid #dee2e6;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+	padding: 10px 18px;
+}
+
+table.dataTable tbody th, table.dataTable tbody td {
+	padding: 8px 10px;
+}
+
+table.dataTable tfoot th, table.dataTable tfoot td {
+	border-top: 1px solid #dee2e6;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: white;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th, .table-striped>thead>tr {
+	background-color: rgba(0, 0, 0, .05);
+}
+
+table.dataTable {
+	border-top: 0;
+	min-width: 0;
+	width: 100%;
 }
