@@ -5,7 +5,7 @@
 		<form [formGroup]="form" (ngSubmit)="save()">
 			<div class="text-left">
 				<div class="form-row">
-					<div class="form-group col-12 col-md-6">
+					<div class="form-group col-12 col-sm-6">
 						<label for="nome">Nome:</label>
 						<app-visual-validator [config]="validations" field="nome">
 							<input
@@ -27,7 +27,7 @@
 								type="email"
 								class="form-control"
 								formControlName="email"
-								placeholder="Digite o email do funcionário"
+								placeholder="Digite o e-mail do funcionário"
 							>
 						</app-visual-validator>
 					</div>
@@ -48,7 +48,7 @@
 							>
 						</app-visual-validator>
 					</div>
-					<div class="form-group col-12 col-md-3">
+					<div class="form-group col-12 col-sm-3">
 						<label for="cep">CEP:</label>
 						<app-visual-validator [config]="validations" field="cep">
 							<input
@@ -78,7 +78,7 @@
 				</div>
 
 				<div class="form-row">
-					<div class="form-group col-12 col-md-4">
+					<div class="form-group col-12 col-sm-4">
 						<label for="bairro">Bairro:</label>
 						<app-visual-validator [config]="validations" field="bairro">
 							<input
@@ -91,7 +91,7 @@
 							>
 						</app-visual-validator>
 					</div>
-					<div class="form-group col-12 col-md-4">
+					<div class="form-group col-12 col-sm-4">
 						<label for="cidade">Cidade:</label>
 						<app-visual-validator [config]="validations" field="cidade">
 							<input
@@ -104,7 +104,7 @@
 							>
 						</app-visual-validator>
 					</div>
-					<div class="form-group col-12 col-md-4">
+					<div class="form-group col-12 col-sm-4">
 						<label for="estado">Estado:</label>
 						<app-visual-validator [config]="validations" field="estado">
 							<ng-select id="estado"
@@ -173,7 +173,7 @@
 				</div>
 
 				<div class="form-row" *ngIf="form.controls.medico.value">
-					<div class="form-group col-12 col-md-6">
+					<div class="form-group col-12 col-sm-6">
 						<label for="especialidade">Especialidade:</label>
 						<app-visual-validator [config]="validations" field="especialidade">
 							<input

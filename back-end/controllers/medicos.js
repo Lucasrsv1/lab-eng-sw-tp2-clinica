@@ -60,7 +60,15 @@ async function getSpecialties (req, res) {
  */
 async function getAvailableAppointmentSlots (req, res) {
 	try {
-		const appointmentSlots = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+		const dt = new Date();
+		const today = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, "0")}-${dt.getDate().toString().padStart(2, "0")}`;
+		let appointmentSlots = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+
+		if (today === req.params.data) {
+			const nextHour = dt.getHours() + 1;
+			appointmentSlots = appointmentSlots.filter(s => s >= nextHour);
+		}
+
 		const appointments = await db.Agendamento.findAll({
 			attributes: ["horario"],
 			where: {

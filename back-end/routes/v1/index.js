@@ -1,5 +1,6 @@
 const { Router } = require("express");
 
+const agendamentosRouter = require("./agendamentos");
 const enderecosRouter = require("./enderecos");
 const funcionariosRouter = require("./funcionarios");
 const loginRouter = require("./login");
@@ -9,6 +10,8 @@ const pacientesRouter = require("./pacientes");
 const router = Router();
 
 // ============= Rotas ============= //
+
+router.use("/agendamentos", agendamentosRouter);
 
 router.use("/enderecos", enderecosRouter);
 

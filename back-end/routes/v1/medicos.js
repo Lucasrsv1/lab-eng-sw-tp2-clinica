@@ -4,7 +4,7 @@ const medicosController = require("../../controllers/medicos");
 
 const router = Router();
 
-router.get(["/", "/:especialidade"], medicosController.getAll);
+router.get(["/", "/especialidade/:especialidade"], medicosController.getAll);
 
 router.get("/especialidades", medicosController.getSpecialties);
 

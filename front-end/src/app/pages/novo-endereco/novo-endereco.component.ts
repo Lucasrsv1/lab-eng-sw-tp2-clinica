@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from "@angular/common/http";
-import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Component, ElementRef, ViewChild } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { BlockUI, NgBlockUI } from "ng-block-ui";
 
@@ -8,6 +8,7 @@ import { AddressService } from "src/app/services/address/address.service";
 import { AlertsService } from "src/app/services/alerts/alerts.service";
 import { IEndereco } from "src/app/interfaces/endereco";
 import { IValidations } from "src/app/components/visual-validator/visual-validator.component";
+import { UtilsService } from "src/app/services/utils/utils.service";
 
 @Component({
 	selector: "app-novo-endereco",
@@ -30,10 +31,11 @@ export class NovoEnderecoComponent {
 	constructor (
 		private formBuilder: FormBuilder,
 		private addressService: AddressService,
-		private alertsService: AlertsService
+		private alertsService: AlertsService,
+		private utilsService: UtilsService
 	) {
 		this.form = this.formBuilder.group({
-			cep: ["", [Validators.required, this.invalidCEP]],
+			cep: ["", [Validators.required, this.utilsService.invalidCEP]],
 			logradouro: ["", Validators.required],
 			bairro: ["", Validators.required],
 			cidade: ["", Validators.required],
@@ -93,12 +95,5 @@ export class NovoEnderecoComponent {
 		this.form.reset();
 		if (this.cepInput)
 			this.cepInput.nativeElement.focus();
-	}
-
-	private invalidCEP (control: AbstractControl): { "failedCEP": boolean } | null {
-		if (control.value && control.value.indexOf("_") !== -1)
-			return { failedCEP: true };
-
-		return null;
 	}
 }

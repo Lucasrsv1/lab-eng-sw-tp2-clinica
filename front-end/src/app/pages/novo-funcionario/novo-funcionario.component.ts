@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from "@angular/common/http";
-import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Component, ElementRef, ViewChild } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { debounceTime } from "rxjs/operators";
 import { sha512 } from "js-sha512";
@@ -15,6 +15,7 @@ import { IPessoa } from "src/app/interfaces/pessoa";
 
 import { AddressService } from "src/app/services/address/address.service";
 import { AlertsService } from "src/app/services/alerts/alerts.service";
+import { UtilsService } from "src/app/services/utils/utils.service";
 import { WorkersService } from "src/app/services/workers/workers.service";
 
 @Component({
@@ -35,19 +36,23 @@ export class NovoFuncionarioComponent {
 
 	public cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/];
 	public estados: string[] = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"];
+	public telephoneMask: (rawValue: string) => Array<string | RegExp>;
 
 	constructor (
 		private formBuilder: FormBuilder,
 		private localeService: BsLocaleService,
 		private addressService: AddressService,
 		private alertsService: AlertsService,
+		private utilsService: UtilsService,
 		private workersService: WorkersService
 	) {
+		this.telephoneMask = this.utilsService.telephoneMask;
+
 		this.form = this.formBuilder.group({
 			nome: ["", Validators.required],
 			email: ["", Validators.required],
-			telefone: ["", [Validators.required, this.invalidPhone]],
-			cep: ["", [Validators.required, this.invalidCEP]],
+			telefone: ["", [Validators.required, this.utilsService.invalidPhone]],
+			cep: ["", [Validators.required, this.utilsService.invalidCEP]],
 			logradouro: ["", Validators.required],
 			bairro: ["", Validators.required],
 			cidade: ["", Validators.required],
@@ -174,27 +179,5 @@ export class NovoFuncionarioComponent {
 		this.form.get("dataContrato")?.setValue(new Date());
 		if (this.nomeInput)
 			this.nomeInput.nativeElement.focus();
-	}
-
-	public telephoneMask (rawValue: string): Array<string | RegExp> {
-		rawValue = rawValue.replace(/[()_-\s]/g, "");
-		if (rawValue.length <= 10)
-			return ["(", /[1-9]/, /\d/, ")", " ", /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/];
-
-		return ["(", /[1-9]/, /\d/, ")", " ", /\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/];
-	}
-
-	private invalidCEP (control: AbstractControl): { "failedCEP": boolean } | null {
-		if (control.value && control.value.indexOf("_") !== -1)
-			return { failedCEP: true };
-
-		return null;
-	}
-
-	private invalidPhone (control: AbstractControl): { "failedPhone": boolean } | null {
-		if (control.value && control.value.indexOf("_") !== -1)
-			return { failedPhone: true };
-
-		return null;
 	}
 }

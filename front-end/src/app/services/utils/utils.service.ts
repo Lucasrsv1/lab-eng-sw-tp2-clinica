@@ -1,4 +1,6 @@
+import { AbstractControl } from "@angular/forms";
 import { Injectable } from "@angular/core";
+
 import { IPessoa } from "src/app/interfaces/pessoa";
 
 @Injectable({ providedIn: "root" })
@@ -50,6 +52,28 @@ export class UtilsService {
 				return (a < b) ? 1 : ((a > b) ? -1 : 0);
 			}
 		});
+	}
+
+	public telephoneMask (rawValue: string): Array<string | RegExp> {
+		rawValue = rawValue.replace(/[()_-\s]/g, "");
+		if (rawValue.length <= 10)
+			return ["(", /[1-9]/, /\d/, ")", " ", /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/];
+
+		return ["(", /[1-9]/, /\d/, ")", " ", /\d/, /\d/, /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/];
+	}
+
+	public invalidCEP (control: AbstractControl): { "failedCEP": boolean } | null {
+		if (control.value && control.value.indexOf("_") !== -1)
+			return { failedCEP: true };
+
+		return null;
+	}
+
+	public invalidPhone (control: AbstractControl): { "failedPhone": boolean } | null {
+		if (control.value && control.value.indexOf("_") !== -1)
+			return { failedPhone: true };
+
+		return null;
 	}
 
 	public formatAddress (person: IPessoa): string {

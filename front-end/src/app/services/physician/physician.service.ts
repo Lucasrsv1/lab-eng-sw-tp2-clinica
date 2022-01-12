@@ -14,15 +14,15 @@ export class PhysicianService {
 	}
 
 	public getPhysiciansBySpecialty (specialty: string): Observable<IPessoa[]> {
-		return this.http.get<IPessoa[]>(`${environment.API_URL}/v1/medicos/${specialty}`);
+		return this.http.get<IPessoa[]>(`${environment.API_URL}/v1/medicos/especialidade/${specialty}`);
 	}
 
-	public getAvailableAppointmentSlots (physicianCode: string, date: Date): Observable<number[]> {
+	public getAvailableAppointmentSlots (physicianCode: number, date: Date): Observable<number[]> {
 		const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
 		return this.http.get<number[]>(`${environment.API_URL}/v1/medicos/horariosDisponiveis/${physicianCode}/${formattedDate}`);
 	}
 
-	public getSpecialties (): Observable<string> {
-		return this.http.get<string>(`${environment.API_URL}/v1/medicos/especialidades`);
+	public getSpecialties (): Observable<string[]> {
+		return this.http.get<string[]>(`${environment.API_URL}/v1/medicos/especialidades`);
 	}
 }

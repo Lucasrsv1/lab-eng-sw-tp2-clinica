@@ -1,4 +1,5 @@
 import { IMedico } from "./medico";
+import { IPessoa } from "./pessoa";
 
 export interface IFuncionario {
 	codigo?: number;
@@ -6,5 +7,6 @@ export interface IFuncionario {
 	salario: number;
 	senhaHash: string;
 
+	pessoa?: IPessoa;
 	medico?: IMedico;
 }
