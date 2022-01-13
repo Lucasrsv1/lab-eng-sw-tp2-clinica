@@ -29,9 +29,9 @@ export class ListarEnderecosComponent implements OnInit, AfterViewInit, OnDestro
 	public dtTrigger: Subject<any> = new Subject();
 
 	constructor (
-		private addressService: AddressService,
-		private alertsService: AlertsService,
-		private utilsService: UtilsService
+		private readonly addressService: AddressService,
+		private readonly alertsService: AlertsService,
+		private readonly utilsService: UtilsService
 	) {
 		this.utilsService.createDateSortingType();
 

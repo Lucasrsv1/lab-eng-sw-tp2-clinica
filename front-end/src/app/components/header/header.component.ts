@@ -62,8 +62,8 @@ export class HeaderComponent {
 	]
 
 	constructor (
-		private location: Location,
-		private authenticationService: AuthenticationService
+		private readonly location: Location,
+		private readonly authenticationService: AuthenticationService
 	) {
 		// Monitora login e logout
 		this.authenticationService.$loggedClient.subscribe(user => {

@@ -30,9 +30,9 @@ export class ListarPacientesComponent implements OnInit, AfterViewInit, OnDestro
 	public dtTrigger: Subject<any> = new Subject();
 
 	constructor (
-		private alertsService: AlertsService,
-		private patientsService: PatientsService,
-		private utilsService: UtilsService
+		private readonly alertsService: AlertsService,
+		private readonly patientsService: PatientsService,
+		private readonly utilsService: UtilsService
 	) {
 		this.dtOptions = {
 			stateSave: true,

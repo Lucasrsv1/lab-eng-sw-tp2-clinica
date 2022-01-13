@@ -45,11 +45,11 @@ export class NovoPacienteComponent {
 	public telephoneMask: (rawValue: string) => Array<string | RegExp>;
 
 	constructor (
-		private formBuilder: FormBuilder,
-		private addressService: AddressService,
-		private alertsService: AlertsService,
-		private patientsService: PatientsService,
-		private utilsService: UtilsService
+		private readonly formBuilder: FormBuilder,
+		private readonly addressService: AddressService,
+		private readonly alertsService: AlertsService,
+		private readonly patientsService: PatientsService,
+		private readonly utilsService: UtilsService
 	) {
 		this.telephoneMask = this.utilsService.telephoneMask;
 

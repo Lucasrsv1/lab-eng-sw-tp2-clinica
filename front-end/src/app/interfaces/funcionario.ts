@@ -5,7 +5,7 @@ export interface IFuncionario {
 	codigo?: number;
 	dataContrato: string | Date;
 	salario: number;
-	senhaHash: string;
+	senhaHash?: string;
 
 	pessoa?: IPessoa;
 	medico?: IMedico;

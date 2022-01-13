@@ -29,10 +29,10 @@ export class NovoEnderecoComponent {
 	public estados: string[] = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"];
 
 	constructor (
-		private formBuilder: FormBuilder,
-		private addressService: AddressService,
-		private alertsService: AlertsService,
-		private utilsService: UtilsService
+		private readonly formBuilder: FormBuilder,
+		private readonly addressService: AddressService,
+		private readonly alertsService: AlertsService,
+		private readonly utilsService: UtilsService
 	) {
 		this.form = this.formBuilder.group({
 			cep: ["", [Validators.required, this.utilsService.invalidCEP]],

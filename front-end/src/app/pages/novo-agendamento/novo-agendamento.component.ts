@@ -35,12 +35,12 @@ export class NovoAgendamentoComponent implements OnInit {
 	public telephoneMask: (rawValue: string) => Array<string | RegExp>;
 
 	constructor (
-		private formBuilder: FormBuilder,
-		private localeService: BsLocaleService,
-		private alertsService: AlertsService,
-		private appointmentsService: AppointmentsService,
-		private physicianService: PhysicianService,
-		private utilsService: UtilsService
+		private readonly formBuilder: FormBuilder,
+		private readonly localeService: BsLocaleService,
+		private readonly alertsService: AlertsService,
+		private readonly appointmentsService: AppointmentsService,
+		private readonly physicianService: PhysicianService,
+		private readonly utilsService: UtilsService
 	) {
 		this.telephoneMask = this.utilsService.telephoneMask;
 

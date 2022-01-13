@@ -28,9 +28,9 @@ export class ListarMeusAgendamentosComponent implements OnInit, AfterViewInit, O
 	public dtTrigger: Subject<any> = new Subject();
 
 	constructor (
-		private alertsService: AlertsService,
-		private appointmentsService: AppointmentsService,
-		private utilsService: UtilsService
+		private readonly alertsService: AlertsService,
+		private readonly appointmentsService: AppointmentsService,
+		private readonly utilsService: UtilsService
 	) {
 		this.utilsService.createDateSortingType();
 

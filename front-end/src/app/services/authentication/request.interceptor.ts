@@ -16,7 +16,7 @@ export class RequestInterceptor implements HttpInterceptor {
 		private readonly localStorage: LocalStorageService
 	) { }
 
-	intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+	public intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		if (this.authenticationService.isLoggedIn()) {
 			const token = this.localStorage.get(LocalStorageKey.USER);
 			req = req.clone({

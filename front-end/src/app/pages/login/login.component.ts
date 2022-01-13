@@ -24,9 +24,9 @@ export class LoginComponent {
 	public validations: IValidations;
 
 	constructor (
-		private formBuilder: FormBuilder,
-		private authenticationService: AuthenticationService,
-		private alertsService: AlertsService
+		private readonly formBuilder: FormBuilder,
+		private readonly authenticationService: AuthenticationService,
+		private readonly alertsService: AlertsService
 	) {
 		this.form = this.formBuilder.group({
 			email: ["", [Validators.required, Validators.email]],

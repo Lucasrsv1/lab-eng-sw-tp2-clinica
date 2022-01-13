@@ -30,9 +30,9 @@ export class ListarFuncionariosComponent implements OnInit, AfterViewInit, OnDes
 	public dtTrigger: Subject<any> = new Subject();
 
 	constructor (
-		private alertsService: AlertsService,
-		private workersService: WorkersService,
-		private utilsService: UtilsService
+		private readonly alertsService: AlertsService,
+		private readonly workersService: WorkersService,
+		private readonly utilsService: UtilsService
 	) {
 		this.utilsService.createDateSortingType();
 

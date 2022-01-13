@@ -39,12 +39,12 @@ export class NovoFuncionarioComponent {
 	public telephoneMask: (rawValue: string) => Array<string | RegExp>;
 
 	constructor (
-		private formBuilder: FormBuilder,
-		private localeService: BsLocaleService,
-		private addressService: AddressService,
-		private alertsService: AlertsService,
-		private utilsService: UtilsService,
-		private workersService: WorkersService
+		private readonly formBuilder: FormBuilder,
+		private readonly localeService: BsLocaleService,
+		private readonly addressService: AddressService,
+		private readonly alertsService: AlertsService,
+		private readonly utilsService: UtilsService,
+		private readonly workersService: WorkersService
 	) {
 		this.telephoneMask = this.utilsService.telephoneMask;
 

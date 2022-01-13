@@ -25,9 +25,9 @@ export class VisualValidatorComponent implements AfterContentInit {
 
 	private input?: HTMLElement;
 
-	constructor (private elementRef: ElementRef) { }
+	constructor (private readonly elementRef: ElementRef) { }
 
-	public ngAfterContentInit () {
+	public ngAfterContentInit (): void {
 		this.input = this.elementRef.nativeElement.childNodes[0];
 		if (this.input && !this.input.classList.contains("form-control"))
 			this.input.classList.add("form-field");
