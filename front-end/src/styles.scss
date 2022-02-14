@@ -132,3 +132,8 @@ table.dataTable {
 	min-width: 0;
 	width: 100%;
 }
+
+.dataTables_wrapper > .row {
+	margin-left: 0;
+	margin-right: 0;
+}
