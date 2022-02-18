@@ -56,3 +56,10 @@ npm start
 ```
 
 6) Em seu navegador de internet favorito, abra a página da aplicação na porta escolhida usando o IP da máquina (servidor).
+
+## Autenticação
+
+Após acessar o sistema com seu navegador, você pode fazer login usando as credenciais do seguinte usuário cadastrado automaticamente:
+
+- **E-mail:** adm@gmail.com
+- **Senha:** 123456
